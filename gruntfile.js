@@ -61,3 +61,4 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']);
   grunt.registerTask('img', ['imagemin']);
 };
+
