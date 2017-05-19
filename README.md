@@ -3,4 +3,4 @@
 Project in progress
 
 Project link:
-https://postrowinski.github.io/Active-box
+https://postrowinski.github.io/Active_box
