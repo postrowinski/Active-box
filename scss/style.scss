@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Cardo:400i|Open+Sans:700|Raleway:300,400,600,700');
+
+/* 
+font-family: 'Raleway', sans-serif;
+font-family: 'Cardo', serif;
+font-family: 'Open Sans', sans-serif;
+*/
+
+/* VARIABLES */
+$button-color: #e84545;
+$features-header-color: #2d3033;
+$features-text-color: #6c7279;
+$main-xs-nav-color: #35418d;
+
+/* MIXIN */
+
+@mixin transform($trans) {
+	-webkit-transform: $trans;
+	-ms-transform: $trans;
+	transform: $trans;
+}
+
+@mixin middle-align {
+	position: absolute;
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+/* GENERAL */
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.btn {
+	background-color: $button-color;
+	font-size: 13px;
+	text-transform: uppercase;
+	line-height: 46px;
+	padding: 0 50px;
+	@include transition(0.4s);
+	&:hover {
+		color: $button-color;
+		border-color: $button-color;
+		background: #fff;
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+	}
+}
+
+section {
+	margin: 100px 0;
+}
+
+/* NAV */
+nav {
+	margin-top: 20px;
+	position: relative;
+	z-index: 1;
+	.navbar-brand {
+		@include middle-align;
+	}
+	.navbar-toggle {
+			border: 2px solid $main-xs-nav-color;
+		.icon-bar {
+			background: #000;
+		}
+	}
+	
+	.navbar-right {
+		a {
+			color: #fff;
+			opacity: 0.75;
+			font-size: 13px;
+			text-transform: uppercase;
+			min-width: 140px;
+			text-align: center;
+			line-height: 40px;
+			@include transition(0.3s);
+			&:hover {
+				background: transparent;
+				color: $button-color;
+			}
+		}
+	}
+}
+
+/* JUMBOTRON */
+.jumbotron {
+	color: #fff;
+	background: url('../img/jumbotronbg.png') center center no-repeat;
+	background-size: cover;
+	min-height: 750px;
+	position: relative;
+	margin-top: -120px;
+	.jumbo-content {
+		position: absolute;
+		top: calc(50px + 50%);
+		@include transform(translateY(-50%));
+		left: 0;
+		right: 0;
+		max-width: 950px;
+		margin: auto;
+		h1 {
+			font-family: 'Open Sans', sans-serif;
+			text-transform: uppercase;
+			max-width: 870px;
+			margin: 0 auto 30px;
+		}
+		p {
+			margin-bottom: 70px;
+		}
+	}
+}
+/* FEATURES */
+.features {
+	img {
+		margin-top: 40px;
+	}
+	h2 {
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 700;
+		margin: 25px 0 25px;
+		color: $features-header-color;
+	}
+	p {
+		color: $features-text-color;
+		max-width: 300px;
+		margin: auto;
+	}
+	
+}
+
+/* WORKS */
+.works {
+	[class*="col"] {
+		padding: 1px;
+	}
+	a {
+		display: block;
+		position: relative;
+		&:hover {
+			&:before {
+				background: rgba(217, 61, 67, 0.7);
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			.layer {
+				display: block;
+			}
+		}
+		img {
+			margin: auto;
+		}
+		.layer {
+			@include middle-align;
+			color: #fff;
+			display: none;
+			left: 0;
+			right: 0;
+			margin: auto;
+			h3 {
+				font-weight: 700;
+				font-size: 14px;
+			}
+		}
+	}	
+}
+
+/* TEAM */
+.team {
+	img {
+		margin: 0 auto;
+	}
+}
+
+/* MEDIA */
+@media (max-width: 992px) {
+	nav {
+		.navbar-right {
+			a {
+				min-width: auto;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	nav {
+		background: #d34;
+		margin-top: 0;
+		.navbar-brand {
+			position: static;
+			@include transform(translateY(0))
+		}
+		.navbar-right {
+			a {
+				&:hover {
+					color: $main-xs-nav-color/1.5;
+				}
+			}
+		}
+	}
+	.jumbotron {
+		margin-top: -20px;
+	}
+}
+
+@media (max-width: 475px) {
+	.works {
+		[class*="col"] {
+			width: 100%;
+		}
+	}
+}
