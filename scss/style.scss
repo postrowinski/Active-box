@@ -15,7 +15,6 @@ $icon-color: #c5c9ca;
 $half-vw: 50vw;
 
 /* MIXIN */
-
 @mixin transform($trans) {
 	-webkit-transform: $trans;
 	-ms-transform: $trans;
@@ -32,6 +31,12 @@ $half-vw: 50vw;
 	-webkit-transition: $transition;
 	transition: $transition;
 }
+
+/* MEDIA QUERY*/
+$desktop: "(max-width: 1200px)";
+$laptop: "(max-width: 991px)";
+$phone: "(max-width: 768px)";
+$vertical-phone: "(max-width: 475px)";
 
 /* GENERAL */
 body {
@@ -102,8 +107,16 @@ nav {
 	margin-top: 20px;
 	position: relative;
 	z-index: 1;
+	@media #{$phone} {
+		background: #d34;
+		margin-top: 0;
+	}
 	.navbar-brand {
 		@include middle-align;
+		@media #{$phone} {
+			position: static;
+			@include transform(translateY(0))
+		}
 	}
 	.navbar-toggle {
 			border: 2px solid $main-xs-nav-color;
@@ -125,6 +138,12 @@ nav {
 			&:hover {
 				background: transparent;
 				color: $button-color;
+				@media #{$phone} {
+					color: $main-xs-nav-color/1.5;
+				}
+			}
+			@media #{$laptop} {
+				min-width: auto;
 			}
 		}
 	}
@@ -137,6 +156,10 @@ nav {
 	min-height: 750px;
 	position: relative;
 	margin-top: -120px;
+	@media #{$phone} {
+		margin-top: -20px;
+		min-height: 550px;
+	}
 	.jumbo-content {
 		position: absolute;
 		top: calc(50px + 50%);
@@ -145,6 +168,9 @@ nav {
 		right: 0;
 		max-width: 950px;
 		margin: auto;
+		@media #{$vertical-phone} {
+			@include transform(translateY(-55%));
+		}
 		h1 {
 			font-family: 'Open Sans', sans-serif;
 			text-transform: uppercase;
@@ -153,6 +179,9 @@ nav {
 		}
 		p {
 			margin-bottom: 70px;
+			@media #{$vertical-phone} {
+				margin-bottom: 25px;
+			}
 		}
 	}
 }
@@ -180,6 +209,9 @@ nav {
 .works {
 	[class*="col"] {
 		padding: 1px;
+		@media #{$vertical-phone} {
+			width: 100%;
+		}
 	}
 	a {
 		display: block;
@@ -241,14 +273,23 @@ nav {
 
 /* CLIENTS */
 .clients {
-	overflow-x: hidden;
+	overflow: hidden;
 	[class*="col"] {
 		padding: 0;
+	}
+	img {
+		@media #{$laptop} {
+			width: 100%;
+		}
 	}
 	.clients-carousel {
 		background: #53354a;
 		width: $half-vw;
 		height: $half-vw/1.92;
+		@media #{$laptop} {
+			width: 100vw;
+			height: (100vw)/1.92;
+		}
 		#myCarousel {
 			height: 100%;
 			.carousel-indicators {
@@ -269,12 +310,20 @@ nav {
 				padding-left: 8%;
 				position: relative;
 				top: 4%;
+				@media #{$phone} {
+					padding-left: 0;
+				}
 				h2 {
 					font-family: 'Cardo', serif;
 					font-style: italic;
 					line-height: 42px;
 					font-size: 36px;
 					margin-bottom: 30px;
+					@media #{$desktop} {
+						line-height: 28px;
+						font-size: 26px;
+						margin-bottom: 30px;
+					}
 				}
 				p {
 					text-transform: uppercase;
@@ -315,13 +364,16 @@ footer {
 	background: #3a3e64;
 	color: #fff;
 	.container {
-		padding: 20px 0 60px;
+		padding: 20px 15px 60px;
 	}
 	h2 {
 		font-size: 14px;
 		text-transform: uppercase;
 		font-weight: 700;
 		margin-bottom: 15px;
+		@media #{$phone} {
+			margin-top: 35px;	
+		}
 	}
 	p {
 		color: #9d9fb2;
@@ -341,7 +393,7 @@ footer {
 		color: #fff;
 	}
 	.container-fluid {
-		padding: 20px 0;
+		padding: 20px 10px;
 		background: #313454;
 		p {
 			&:last-of-type {
@@ -356,85 +408,6 @@ footer {
 		}
 		span {
 			color: #fff;
-		}
-	}
-}
-
-/* MEDIA */
-@media (max-width: 1200px) {
-	.clients {
-		.clients-carousel {
-			#myCarousel {
-				.carousel-inner {
-					h2 {
-						line-height: 32px;
-						font-size: 30px;
-						margin-bottom: 30px;
-					}
-				}
-			}
-		}
-	}
-}
-@media (max-width: 991px) {
-	nav {
-		.navbar-right {
-			a {
-				min-width: auto;
-			}
-		}
-	}
-	.clients {
-		img {
-			width: 100%;
-		}
-		.clients-carousel {
-			width: 100vw;
-			height: (100vw)/1.92;
-		}
-	}
-}
-
-@media (max-width: 768px) {
-	nav {
-		background: #d34;
-		margin-top: 0;
-		.navbar-brand {
-			position: static;
-			@include transform(translateY(0))
-		}
-		.navbar-right {
-			a {
-				&:hover {
-					color: $main-xs-nav-color/1.5;
-				}
-			}
-		}
-	}
-	.jumbotron {
-		margin-top: -20px;
-		min-height: 500px;
-	}
-	.clients {
-		.clients-carousel {
-			#myCarousel {
-				.carousel-inner {
-					padding-left: 0;
-				}
-			}
-		}
-	}
-	footer {
-		h2 {
-			margin-top: 35px;	
-		}
-	}
-}
-
-@media (max-width: 475px) {
-	.works {
-		[class*="col"] {
-			width: 100%;
 		}
 	}
 }

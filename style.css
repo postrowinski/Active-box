@@ -6,6 +6,7 @@ font-family: 'Open Sans', sans-serif;
 */
 /* VARIABLES */
 /* MIXIN */
+/* MEDIA QUERY*/
 /* GENERAL */
 body {
   font-family: 'Raleway', sans-serif; }
@@ -61,12 +62,22 @@ nav {
   margin-top: 20px;
   position: relative;
   z-index: 1; }
+  @media (max-width: 768px) {
+    nav {
+      background: #d34;
+      margin-top: 0; } }
   nav .navbar-brand {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
+    @media (max-width: 768px) {
+      nav .navbar-brand {
+        position: static;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0); } }
   nav .navbar-toggle {
     border: 2px solid #35418d; }
     nav .navbar-toggle .icon-bar {
@@ -84,6 +95,12 @@ nav {
     nav .navbar-right a:hover {
       background: transparent;
       color: #e84545; }
+      @media (max-width: 768px) {
+        nav .navbar-right a:hover {
+          color: #232b5e; } }
+    @media (max-width: 991px) {
+      nav .navbar-right a {
+        min-width: auto; } }
 
 /* JUMBOTRON */
 .jumbotron {
@@ -92,6 +109,10 @@ nav {
   min-height: 750px;
   position: relative;
   margin-top: -120px; }
+  @media (max-width: 768px) {
+    .jumbotron {
+      margin-top: -20px;
+      min-height: 550px; } }
   .jumbotron .jumbo-content {
     position: absolute;
     top: calc(50px + 50%);
@@ -102,6 +123,11 @@ nav {
     right: 0;
     max-width: 950px;
     margin: auto; }
+    @media (max-width: 475px) {
+      .jumbotron .jumbo-content {
+        -webkit-transform: translateY(-55%);
+        -ms-transform: translateY(-55%);
+        transform: translateY(-55%); } }
     .jumbotron .jumbo-content h1 {
       font-family: 'Open Sans', sans-serif;
       text-transform: uppercase;
@@ -109,6 +135,9 @@ nav {
       margin: 0 auto 30px; }
     .jumbotron .jumbo-content p {
       margin-bottom: 70px; }
+      @media (max-width: 475px) {
+        .jumbotron .jumbo-content p {
+          margin-bottom: 25px; } }
 
 /* FEATURES */
 .features {
@@ -128,6 +157,9 @@ nav {
 /* WORKS */
 .works [class*="col"] {
   padding: 1px; }
+  @media (max-width: 475px) {
+    .works [class*="col"] {
+      width: 100%; } }
 
 .works a {
   display: block;
@@ -179,13 +211,20 @@ nav {
 
 /* CLIENTS */
 .clients {
-  overflow-x: hidden; }
+  overflow: hidden; }
   .clients [class*="col"] {
     padding: 0; }
+  @media (max-width: 991px) {
+    .clients img {
+      width: 100%; } }
   .clients .clients-carousel {
     background: #53354a;
     width: 50vw;
     height: 26.0416666667vw; }
+    @media (max-width: 991px) {
+      .clients .clients-carousel {
+        width: 100vw;
+        height: 52.0833333333vw; } }
     .clients .clients-carousel #myCarousel {
       height: 100%; }
       .clients .clients-carousel #myCarousel .carousel-indicators {
@@ -203,12 +242,20 @@ nav {
         padding-left: 8%;
         position: relative;
         top: 4%; }
+        @media (max-width: 768px) {
+          .clients .clients-carousel #myCarousel .carousel-inner {
+            padding-left: 0; } }
         .clients .clients-carousel #myCarousel .carousel-inner h2 {
           font-family: 'Cardo', serif;
           font-style: italic;
           line-height: 42px;
           font-size: 36px;
           margin-bottom: 30px; }
+          @media (max-width: 1200px) {
+            .clients .clients-carousel #myCarousel .carousel-inner h2 {
+              line-height: 28px;
+              font-size: 26px;
+              margin-bottom: 30px; } }
         .clients .clients-carousel #myCarousel .carousel-inner p {
           text-transform: uppercase;
           font-weight: 700px;
@@ -238,12 +285,15 @@ footer {
   background: #3a3e64;
   color: #fff; }
   footer .container {
-    padding: 20px 0 60px; }
+    padding: 20px 15px 60px; }
   footer h2 {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 15px; }
+    @media (max-width: 768px) {
+      footer h2 {
+        margin-top: 35px; } }
   footer p {
     color: #9d9fb2;
     margin-bottom: 0px; }
@@ -258,7 +308,7 @@ footer {
     font-size: 16px;
     color: #fff; }
   footer .container-fluid {
-    padding: 20px 0;
+    padding: 20px 10px;
     background: #313454; }
     footer .container-fluid p:last-of-type {
       margin-top: -4px; }
@@ -269,44 +319,5 @@ footer {
       top: 2px; }
     footer .container-fluid span {
       color: #fff; }
-
-/* MEDIA */
-@media (max-width: 1200px) {
-  .clients .clients-carousel #myCarousel .carousel-inner h2 {
-    line-height: 32px;
-    font-size: 30px;
-    margin-bottom: 30px; } }
-
-@media (max-width: 991px) {
-  nav .navbar-right a {
-    min-width: auto; }
-  .clients img {
-    width: 100%; }
-  .clients .clients-carousel {
-    width: 100vw;
-    height: 52.0833333333vw; } }
-
-@media (max-width: 768px) {
-  nav {
-    background: #d34;
-    margin-top: 0; }
-    nav .navbar-brand {
-      position: static;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0); }
-    nav .navbar-right a:hover {
-      color: #232b5e; }
-  .jumbotron {
-    margin-top: -20px;
-    min-height: 500px; }
-  .clients .clients-carousel #myCarousel .carousel-inner {
-    padding-left: 0; }
-  footer h2 {
-    margin-top: 35px; } }
-
-@media (max-width: 475px) {
-  .works [class*="col"] {
-    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
