@@ -12,6 +12,7 @@ $features-header-color: #2d3033;
 $features-text-color: #6c7279;
 $main-xs-nav-color: #35418d;
 $icon-color: #c5c9ca;
+$half-vw: 50vw;
 
 /* MIXIN */
 
@@ -51,10 +52,10 @@ body {
 		text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 	}
 }
-
 section {
-	margin: 100px 0;
+	margin: 60px 0;
 }
+
 
 p {
 	color: $features-text-color;
@@ -121,8 +122,9 @@ nav {
 }
 /* FEATURES */
 .features {
+	margin-top: 0;
 	img {
-		margin-top: 40px;
+		margin-top: 30px;
 	}
 	h2 {
 		font-size: 14px;
@@ -180,12 +182,14 @@ nav {
 }
 /* TEAM */
 .team {
+	margin-bottom: 0;
 	img {
 		margin: 0 auto;
 	}
 	.team-person-info {
 		max-width: 265px;
 		margin: 0 auto;
+		padding-bottom: 15px;
 		h2 {
 			font-size: 22px;
 			color: #2d3033;
@@ -212,16 +216,19 @@ nav {
 		.fa-facebook {
 			&:hover {
 				background: #3b5998;
+				border-color: #3b5998;
 			}
 		}
 		.fa-twitter {
 			&:hover {
 				background: #55acee;
+				border-color: #55acee;
 			}
 		}
 		.fa-linkedin {
 			&:hover {
 				background: #007bb5;
+				border-color: #007bb5;
 			}
 		}
 	}
@@ -229,27 +236,46 @@ nav {
 
 /* CLIENTS */
 .clients {
+	overflow-x: hidden;
 	[class*="col"] {
 		padding: 0;
 	}
 	.clients-carousel {
-		position: relative;
-		.carousel {
-			@include middle-align;
-			left: 0;
-			right: 0;
-			margin: auto;
+		background: #53354a;
+		width: $half-vw;
+		height: $half-vw/1.92;
+		#myCarousel {
+			height: 100%;
+			.carousel-indicators {
+				width: 100%;
+				bottom: 10px;
+				left: -15%;
+				margin: auto;
+				li {
+					background: rgba(255,255,255, 0.2);
+				}
+				li.active {
+					background: #fff;
+				}
+			}
 			.carousel-inner {
 				max-width: 500px;
 				color: #fff;
-				margin-left: 8%;
-				
+				padding-left: 8%;
+				position: relative;
+				top: 4%;
 				h2 {
-				font-family: 'Cardo', serif;
-				font-style: italic;
-				line-height: 42px;
-				font-size: 36px;
-					
+					font-family: 'Cardo', serif;
+					font-style: italic;
+					line-height: 42px;
+					font-size: 36px;
+					margin-bottom: 30px;
+				}
+				p {
+					text-transform: uppercase;
+					font-weight: 700px;
+					font-size: 13px;
+					color: #fff;
 				}
 			}
 		}
@@ -257,12 +283,36 @@ nav {
 }
 
 /* MEDIA */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
+	.clients {
+		.clients-carousel {
+			#myCarousel {
+				.carousel-inner {
+					h2 {
+						line-height: 32px;
+						font-size: 30px;
+						margin-bottom: 30px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 991px) {
 	nav {
 		.navbar-right {
 			a {
 				min-width: auto;
 			}
+		}
+	}
+	.clients {
+		img {
+			width: 100%;
+		}
+		.clients-carousel {
+			width: 100vw;
+			height: (100vw)/1.92;
 		}
 	}
 }
@@ -285,6 +335,15 @@ nav {
 	}
 	.jumbotron {
 		margin-top: -20px;
+	}
+	.clients {
+		.clients-carousel {
+			#myCarousel {
+				.carousel-inner {
+					padding-left: 0;
+				}
+			}
+		}
 	}
 }
 
