@@ -211,6 +211,24 @@ nav {
           font-size: 13px;
           color: #fff; }
 
+/* DOWNLOAD */
+.download {
+  padding: 30px 0;
+  color: #2d3033; }
+  .download h2 {
+    font-size: 28px;
+    font-weight: 300; }
+  .download h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase; }
+  .download .btn {
+    margin-top: 40px;
+    padding: 0 70px;
+    color: #fff; }
+    .download .btn:hover {
+      color: #e84545; }
+
 /* MEDIA */
 @media (max-width: 1200px) {
   .clients .clients-carousel #myCarousel .carousel-inner h2 {
