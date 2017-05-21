@@ -24,6 +24,31 @@ body {
     background: #fff;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.2); }
 
+.fa {
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #c5c9ca;
+  color: #c5c9ca;
+  -webkit-transition: 0.4s;
+  transition: 0.4s; }
+  .fa:hover {
+    color: #fff; }
+
+.fa-facebook:hover {
+  background: #3b5998;
+  border-color: #3b5998; }
+
+.fa-twitter:hover {
+  background: #55acee;
+  border-color: #55acee; }
+
+.fa-linkedin:hover {
+  background: #007bb5;
+  border-color: #007bb5; }
+
 section {
   margin: 60px 0; }
 
@@ -151,27 +176,6 @@ nav {
       color: #f82127;
       text-transform: uppercase;
       margin: 10px 0 20px; }
-    .team .team-person-info .fa {
-      line-height: 40px;
-      text-align: center;
-      font-size: 20px;
-      width: 40px;
-      height: 40px;
-      border: 1px solid #c5c9ca;
-      color: #c5c9ca;
-      -webkit-transition: 0.4s;
-      transition: 0.4s; }
-      .team .team-person-info .fa:hover {
-        color: #fff; }
-    .team .team-person-info .fa-facebook:hover {
-      background: #3b5998;
-      border-color: #3b5998; }
-    .team .team-person-info .fa-twitter:hover {
-      background: #55acee;
-      border-color: #55acee; }
-    .team .team-person-info .fa-linkedin:hover {
-      background: #007bb5;
-      border-color: #007bb5; }
 
 /* CLIENTS */
 .clients {
@@ -229,6 +233,43 @@ nav {
     .download .btn:hover {
       color: #e84545; }
 
+/* FOOTER */
+footer {
+  background: #3a3e64;
+  color: #fff; }
+  footer .container {
+    padding: 20px 0 60px; }
+  footer h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 15px; }
+  footer p {
+    color: #9d9fb2;
+    margin-bottom: 0px; }
+  footer a {
+    margin-right: 4px; }
+    footer a:last-of-type {
+      margin-right: 0; }
+  footer .fa {
+    box-sizing: border-box;
+    border: 3px solid #fff;
+    line-height: 34px;
+    font-size: 16px;
+    color: #fff; }
+  footer .container-fluid {
+    padding: 20px 0;
+    background: #313454; }
+    footer .container-fluid p:last-of-type {
+      margin-top: -4px; }
+    footer .container-fluid .hearts {
+      color: #ee4247;
+      font-size: 19px;
+      position: relative;
+      top: 2px; }
+    footer .container-fluid span {
+      color: #fff; }
+
 /* MEDIA */
 @media (max-width: 1200px) {
   .clients .clients-carousel #myCarousel .carousel-inner h2 {
@@ -257,9 +298,12 @@ nav {
     nav .navbar-right a:hover {
       color: #232b5e; }
   .jumbotron {
-    margin-top: -20px; }
+    margin-top: -20px;
+    min-height: 500px; }
   .clients .clients-carousel #myCarousel .carousel-inner {
-    padding-left: 0; } }
+    padding-left: 0; }
+  footer h2 {
+    margin-top: 35px; } }
 
 @media (max-width: 475px) {
   .works [class*="col"] {
