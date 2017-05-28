@@ -5,15 +5,16 @@ $(document).ready(function () {
         event.preventDefault();
         var getLink = $(this).attr('href'),
             goTop = $(getLink).offset().top;
-
         $('html, body').animate({
             scrollTop: goTop
         }, 700);
     });
+
+    //hide arrow after load website
+    $('.scroll-top').hide();
     
     //scroll website top from bottom-right arrow
-    $('.scroll-top').click(function (event) {
-        event.preventDefault();
+    $('.scroll-top').click(function () {
         var goTop = $('html').offset().top;
 
         $('html, body').animate({
