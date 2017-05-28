@@ -1,13 +1,17 @@
 $(document).ready(function () {
 
+    const scrollTopAnimation = function(goTop) {
+         $('html, body').animate({
+            scrollTop: goTop
+        }, 700);
+    }
+    
     //navigation scroll down
     $('nav a').click(function (event) {
         event.preventDefault();
-        var getLink = $(this).attr('href'),
+        const getLink = $(this).attr('href'),
             goTop = $(getLink).offset().top;
-        $('html, body').animate({
-            scrollTop: goTop
-        }, 700);
+            scrollTopAnimation(goTop);
     });
 
     //hide arrow after load website
@@ -15,11 +19,8 @@ $(document).ready(function () {
     
     //scroll website top from bottom-right arrow
     $('.scroll-top').click(function () {
-        var goTop = $('html').offset().top;
-
-        $('html, body').animate({
-            scrollTop: goTop
-        }, 700);
+        const goTop = $('html').offset().top;
+        scrollTopAnimation(goTop);
     });
 
     //visibility bottom-right arrow
