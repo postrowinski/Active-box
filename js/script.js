@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const scrollTopAnimation = function(goTop) {
+    function scrollTopAnimation(goTop) {
          $('html, body').animate({
             scrollTop: goTop
         }, 700);
